@@ -35,7 +35,7 @@ class ImageController extends Controller
     }
     public function edit($id){  
         $Image = Image::find($id);
-        return view('editimage', compact('Image'));
+        return view('edit/editimage', compact('Image'));
     }
     public function update(Request $request, $id){
         $Image = Image::find($id);

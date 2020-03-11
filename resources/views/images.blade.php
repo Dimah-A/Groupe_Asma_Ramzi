@@ -1,7 +1,7 @@
 @extends('layouts/master')
 @section('content')
 <div class="p-3  bg-danger  text-white d-flex justify-content-center"><h1>Images</h1></div>
-<form  action="{{asset('save')}}" method="post" enctype="multipart/form-data" class="form-inline   ">
+<form  action="{{asset('save')}}" method="post" enctype="multipart/form-data" class="form-inline">
     @csrf
     <div class="text-center mx-auto col-6 py-5 ">
         {{-- BTN RETOUR --}}
@@ -39,11 +39,9 @@
         </thead>
         <tbody>
             <tr>
-                @foreach ($users as $user)
-                <th scope="row">{{$user->nom}}</th>
-                <td>{{$user->email}}</td>
-                <td>{{$user->age}}</td>
-                <td><img class="img-fluid w-25" src="{{asset('storage/'.$user->url)}}" alt="">
+                @foreach ($Images as $item)
+                <th scope="row">{{$item->titre}}</th>
+                <td><img class="img-fluid w-25" src="{{asset($item->img)}}" alt="">
                 </td>
             </tr>
             @endforeach

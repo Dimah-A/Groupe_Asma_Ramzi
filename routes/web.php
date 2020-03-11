@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/image','ImageController@index')->name('image');
 Route::get('/','WelcomeController@index')->name('home');
+Route::post('/categorie','CategorieController@index')->name('categorie');

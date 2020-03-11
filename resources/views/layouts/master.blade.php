@@ -25,7 +25,7 @@
                     <a class="nav-link" href="#">Categorie</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link disabled" href="{{route('image')}}">Images</a>
+                <a class="nav-link" href="{{route('image')}}">Images</a>
                 </li>
             </ul>
         </div>
