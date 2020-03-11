@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/image','ImageController@index')->name('image');
+Route::get('/','WelcomeController@index')->name('home');
