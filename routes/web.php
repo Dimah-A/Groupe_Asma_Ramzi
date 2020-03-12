@@ -20,9 +20,6 @@ Route::get('/','WelcomeController@index')->name('home');
 Route::post('/categorie','CategorieController@index')->name('categorie');
 
 
-
-
-
 // USER
 // c'est le chemin pour arriver dans user via la navbar mais c'est aussi le create pour afficher les données entré dans le formulaire dans la page user
 Route::get('/user', 'UserController@create')->name('user');
@@ -43,9 +40,14 @@ Route::get('/delete/{id}', 'UserController@destroy')->name('delete');
 // AVATAR
 Route::get('/avatar', 'AvatarController@index')->name('avatar');
 Route::post('/saveA','AvatarController@store')->name('saveA');
+
 //pour le button delete
 Route::get('/deleteA/{id}', 'AvatarController@destroy')->name('deleteA');
 
+//pour edit
+Route::post('/updateAvatar/{id}','AvatarController@update' )->name('updateA');
+
+Route::get('/editAvatar/{id}','AvatarController@edit')->name('editA');
 
 //CATEGORIE
 

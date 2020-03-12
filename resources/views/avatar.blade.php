@@ -61,8 +61,8 @@
                         Delete
                     </a>
                     
-                    <a href="{{route('edit',$avatar->id)}}">                    
-                        <button class="btn btn-secondary mr-1">edit</button>
+                    <a class="btn btn-secondary mr-1" href="{{route('editA',$avatar->id)}}">                    
+                    edit
                     </a>
                 </td>
                 

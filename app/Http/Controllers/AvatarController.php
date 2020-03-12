@@ -71,11 +71,11 @@ class AvatarController extends Controller
              * @param  \App\Avatar  $avatar
              * @return \Illuminate\Http\Response
              */
-            public function edit(Avatar $avatar)
+            public function edit($id)
             {
                 
                 $avatar= avatar::find($id);
-                return view('editavatar',compact('avatar'));
+                return view('editAvatar',compact('avatar'));
             }
             
             /**
@@ -86,12 +86,16 @@ class AvatarController extends Controller
      * @param  \App\Avatar  $avatar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Avatar $avatar)
+    public function update(Request $request,$id)
     {
         $avatar =Avatar::find($id);
         Storage::disk('public')->delete($avatar->img);
+
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
+
         $avatar->nom = $request->input('nom');
-        $avatar->img = $request->input('img');
+        $avatar->img = $newName;
         $avatar->save();
 
         return redirect()->route('avatar');
