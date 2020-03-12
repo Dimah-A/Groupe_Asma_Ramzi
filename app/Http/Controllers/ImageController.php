@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -18,37 +19,39 @@ class ImageController extends Controller
     }
     
     public function store(Request $request){
-
-            //  $request->validate([
-            // 'pseudo' => 'required|min:4',
-            // 'email' => 'required|email:rfc,dns',
-            // 'motdepasse' => 'required|max:15',
-            //  'img' => 'image'
-            // ]);
-            // Storage::put('public',$request->file('img'));
+        $validatedData = $request->validate([
+            'titre' => 'required|min:2',
+            'img' => 'image',
+            ]);
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
         $Image = new Image();
         $Image->titre = $request->input('titre');
-        $Image->img = $request->input('img');
+        $Image->img = $newName;
         $Image->save();
 
-        return redirect()->route('home');
+        return redirect()->route('image');
     }
     public function edit($id){  
         $Image = Image::find($id);
-        return view('edit/editimage', compact('Image'));
+        return view('editimage', compact('Image'));
     }
     public function update(Request $request, $id){
         $Image = Image::find($id);
+        Storage::disk('public')->delete($Image->img);
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
         $Image->titre = $request->input('titre');
-        $Image->img = $request->input('img');
+        $Image->img = $newName;
 
         $Image->save();
 
-        return redirect()->route('home');
+        return redirect()->route('image');
     }
     public function destroy($id){
         $Image = Image::find($id);
+        Storage::disk('public')->delete($Image->img);
         $Image->delete();
-        return redirect()->route('home');
+        return redirect()->route('image');
     }
 }
