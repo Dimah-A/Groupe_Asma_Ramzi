@@ -32,6 +32,8 @@ Route::get('/editUser/{id}','UserController@edit')->name('edit');
 Route::post('/updateUser/{id}','UserController@update' )->name('update');
 
 
+
+
 //pour le button delete
 Route::get('/delete/{id}', 'UserController@destroy')->name('delete');
 
@@ -50,6 +52,18 @@ Route::post('/updateAvatar/{id}','AvatarController@update' )->name('updateA');
 Route::get('/editAvatar/{id}','AvatarController@edit')->name('editA');
 
 //CATEGORIE
-
+//edit
+Route::get('/editcategorie/{id}','CategorieController@edit')->name('editcategorie');
+route::post('/upadtecategorie/{id}','CategorieController@update')->name('updatecategorie');
+Route::post('/savecategorie','CategorieController@store')->name('savecategorie');
+route::get('/deletecategorie/{id}','CategorieController@destroy')->name('deletecategorie');
+Route::get('/categorie','CategorieController@index')->name('categorie');
 
 //IMAGES
+
+//edit
+Route::get('/editimg/{id}','ImageController@edit')->name('editimg');
+route::post('/upadteimg/{id}','ImageController@update')->name('updateimg');
+Route::post('/saveimg','ImageController@store')->name('saveimg');
+route::get('/deleteimg/{id}','ImageController@destroy')->name('deleteimg');
+Route::get('/image','ImageController@index')->name('image');

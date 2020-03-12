@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Welcome;
 use App\Image;
+use App\Categorie;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -16,8 +17,9 @@ class WelcomeController extends Controller
     public function index(){
 
         $Image = Image::all();
+        $Categorie = Categorie::all();
        
-        return view('welcome', compact('Image'));
+        return view('welcome', compact('Image','Categorie'));
 
     }
 

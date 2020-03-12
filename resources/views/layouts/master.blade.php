@@ -17,18 +17,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
+<<<<<<< HEAD
                     <a class="nav-link" href="{{route('user')}}">User <span class="sr-only">(current)</span></a>
+=======
+                    <a class="nav-link" href="{{route('user')}}">Users <span class="sr-only">(current)</span></a>
+>>>>>>> b6388aec72e189f684e44f744236979b58c8a0da
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('avatar')}}">Avatar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="
-                    {{-- {{route('categorie')}} --}}
-                    ">Categories</a>
+                    <a class="nav-link" href="{{route('categorie')}}">Categorie</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" href="{{route('image')}}">Images</a>
+=======
+                <a class="nav-link" href="{{route('image')}}">Images</a>
+>>>>>>> b6388aec72e189f684e44f744236979b58c8a0da
                 </li>
             </ul>
         </div>
@@ -53,3 +59,10 @@
 
 
 
+<<<<<<< HEAD
+=======
+    
+    <script  src="/js/app.js"></script>
+</body>
+</html>
+>>>>>>> b6388aec72e189f684e44f744236979b58c8a0da
