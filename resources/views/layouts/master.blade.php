@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="
-                    {{-- {{route('image')}} --}}
+                     {{route('image')}}
                     ">Images</a>
                 </li>
             </ul>
