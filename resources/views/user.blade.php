@@ -69,12 +69,12 @@
                 <td>{{$user->email}}</td>
 
                 <td>
-                    <a href="{{route('delete',$user->id)}}">
-                        <button class="btn btn-danger">Delete</button>
+                    <a class="btn btn-danger" href="{{route('delete',$user->id)}}">
+                         Delete
                     </a>
                     
-                    <a href="{{route('edit',$user->id)}}">                    
-                        <button class="btn btn-secondary mr-1">edit</button>
+                    <a class="btn btn-secondary mr-1" href="{{route('edit',$user->id)}}">                    
+                        edit
                     </a>
                 </td>
                 

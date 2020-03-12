@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// USER
-// c'est le chemin pour arriver dans la page home via la navbar et les buttons home(qui ne sont pas encors fait)
-Route::get('/', 'UserController@index')->name('home');
+Route::get('/image','ImageController@index')->name('image');
 
+// c'est le chemin pour arriver dans la page home via la navbar et les buttons home(qui ne sont pas encors fait)
+Route::get('/','WelcomeController@index')->name('home');
+Route::post('/categorie','CategorieController@index')->name('categorie');
+
+
+
+
+
+// USER
 // c'est le chemin pour arriver dans user via la navbar mais c'est aussi le create pour afficher les données entré dans le formulaire dans la page user
 Route::get('/user', 'UserController@create')->name('user');
 
@@ -31,9 +38,14 @@ Route::post('/updateUser/{id}','UserController@update' )->name('update');
 //pour le button delete
 Route::get('/delete/{id}', 'UserController@destroy')->name('delete');
 
+// -------------------------------------------------------------
+
 // AVATAR
 Route::get('/avatar', 'AvatarController@index')->name('avatar');
-// Route::post('/save','AvatarController@store')->name('save');
+Route::post('/saveA','AvatarController@store')->name('saveA');
+//pour le button delete
+Route::get('/deleteA/{id}', 'AvatarController@destroy')->name('deleteA');
+
 
 //CATEGORIE
 

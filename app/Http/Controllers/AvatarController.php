@@ -38,31 +38,19 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $img= $request->file('img');
-        // $newName=Storage::disk('public')->put('', $img);
-        // $table->img=$newName;
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
+        $avatar = new Avatar();
+        $avatar->nom = $request->input('nom');
+        $avatar->img = $newName;
+        $avatar->save();
+        return redirect()->route('avatar');
         
-        // $newNameGenerate = time() . substr($request->img, strrpos($request->img, '/') + 1);
-        // $contents = file_get_contents($request->img);
-        // $img = file_put_contents('storage/' . $newNameGenerate, $contents);
-        // Storage::disk('public')->img($newNameGenerate, $img);
-        // $table->img = $newNameGenerate;
-
-
-        // $avatar = new Avatar();
-        // $avatar->nom = $request->input('nom');
-        // $avatar->img = $request->input('img');
-	
-      // dd($avatar->save());
-        // $avatar->save();
-
-        // return redirect( )->route('avatar');
+        
+        
+    }
     
     
-   
-            }
-            
             
             
             
@@ -85,7 +73,9 @@ class AvatarController extends Controller
              */
             public function edit(Avatar $avatar)
             {
-                //
+                
+                $avatar= avatar::find($id);
+                return view('editavatar',compact('avatar'));
             }
             
             /**
@@ -98,7 +88,15 @@ class AvatarController extends Controller
      */
     public function update(Request $request, Avatar $avatar)
     {
-        //
+        $avatar =Avatar::find($id);
+        Storage::disk('public')->delete($avatar->img);
+        $avatar->nom = $request->input('nom');
+        $avatar->img = $request->input('img');
+        $avatar->save();
+
+        return redirect()->route('avatar');
+
+        
     }
 
     /**
@@ -107,8 +105,11 @@ class AvatarController extends Controller
      * @param  \App\Avatar  $avatar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avatar $avatar)
+    public function destroy( $id)
     {
-        //
+        $avatar=Avatar::find($id);
+        Storage::disk('public')->delete($avatar->img);
+        $avatar->delete();
+        return  redirect()->route('avatar');
     }
 }

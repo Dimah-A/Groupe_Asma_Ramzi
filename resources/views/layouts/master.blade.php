@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,15 +28,28 @@
                     ">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="
-                     {{route('image')}}
-                    ">Images</a>
+                    <a class="nav-link" href="{{route('image')}}">Images</a>
                 </li>
             </ul>
         </div>
     </nav>
     @yield('content')
-    
     <script  src="/js/app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

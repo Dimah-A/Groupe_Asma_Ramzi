@@ -15,7 +15,6 @@ class UserController extends Controller
     public function index()
     {
         
-        return view('welcome');
 
     }
     
@@ -42,6 +41,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([  
+            'nom' => 'required|min:3',  
+            'age' => 'required|integer',  
+            'email' => 'required|email',  
+           
+            ]);
+
+
         $user = new User();
         $user->age = $request->input('age');
         $user->nom = $request->input('nom');
@@ -72,7 +79,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user= User::find($id);
-        return view('edituser',compact('user'));
+        return view('editUser',compact('user'));
     }
 
     /**
@@ -84,7 +91,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $table =User::find($id);
+        $user =User::find($id);
 
         $user->nom = $request->input('nom');
         $user->age = $request->input('age');
@@ -93,7 +100,7 @@ class UserController extends Controller
         $user->save();
         // dd($user);
 
-        return redirect()->route('home');
+        return redirect()->route('user');
     }
 
     /**
@@ -108,7 +115,7 @@ class UserController extends Controller
         $user=User::find($id);
         $user->delete();
 
-        return  redirect()->route('home');
+        return  redirect()->route('user');
         
     }
 }
