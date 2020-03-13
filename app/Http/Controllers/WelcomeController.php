@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Welcome;
 use App\Image;
 use App\Categorie;
+use App\Entreprise;
+use App\Role;
+
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -18,8 +21,10 @@ class WelcomeController extends Controller
 
         $Image = Image::all();
         $Categorie = Categorie::all();
-       
-        return view('welcome', compact('Image','Categorie'));
+        $Entreprise = Entreprise::all();
+        $Role = Role::all();
+
+        return view('welcome', compact('Image','Categorie','Entreprise','Role'));
 
     }
 

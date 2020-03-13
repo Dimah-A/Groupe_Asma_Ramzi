@@ -31,13 +31,13 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="
-                    {{-- {{route('entreprise')}} --}}
+                    {{route('entreprise')}}
                     ">Entreprise</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="
-                    {{-- {{route('role')}} --}}
+                    {{route('role')}}
                     ">Role</a>
                 </li>
             </ul>

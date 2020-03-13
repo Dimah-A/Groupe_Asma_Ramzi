@@ -33,6 +33,8 @@ Route::post('/updateUser/{id}','UserController@update' )->name('update');
 //pour le button delete
 Route::get('/delete/{id}', 'UserController@destroy')->name('delete');
 
+
+
 // -------------------------------------------------------------
 
 // AVATAR
@@ -48,6 +50,8 @@ Route::get('/editAvatar/{id}','AvatarController@edit')->name('editA');
 //pour modif
 Route::post('/updateAvatar/{id}','AvatarController@update' )->name('updateA');
 
+
+
 // ----------------------------------------------------------------------
 
 //CATEGORIE
@@ -59,6 +63,9 @@ Route::post('/savecategorie','CategorieController@store')->name('savecategorie')
 route::get('/deletecategorie/{id}','CategorieController@destroy')->name('deletecategorie');
 Route::get('/categorie','CategorieController@index')->name('categorie');
 
+
+
+// ------------------------------------------------------------------------------------
 //IMAGES
 //edit
 Route::get('/editimg/{id}','ImageController@edit')->name('editimg');
@@ -68,5 +75,12 @@ Route::post('/saveimg','ImageController@store')->name('saveimg');
 route::get('/deleteimg/{id}','ImageController@destroy')->name('deleteimg');
 Route::get('/image','ImageController@index')->name('image');
 
-// ------------------------------------------------------------------------------------
 
+// ------------------------------------------------------------------------------------
+// ROLE
+Route::get('/role','RoleController@index')->name('role');
+Route::post('/saveR','RoleController@store')->name('saveR');
+
+// ENTREPRISE
+Route::get('/entreprise','EntrepriseController@index')->name('entreprise');
+Route::post('/saveE','EntrepriseController@store')->name('saveE');
