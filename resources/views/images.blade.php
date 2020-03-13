@@ -1,17 +1,6 @@
 @extends('layouts/master')
 @section('content')
 <div class="p-3  bg-danger  text-white d-flex justify-content-center"><h1>Images</h1></div>
-<<<<<<< HEAD
-
-{{-- BTN RETOUR --}}
-<div class="text-center my-5 ">
-    <a href="{{route('home')}}"><button class="btn btn-warning text-white">Retour</button></a>
-</div>
-
-<form  action="{{asset('save')}}" method="post" enctype="multipart/form-data" class="form-inline">
-    @csrf
-    <div class="text-center mx-auto col-6 py-5 ">
-=======
 <div class="text-center my-5 ">
             <a href="{{route('home')}}"><button class="btn btn-warning text-white">Retour</button></a>
         </div>
@@ -20,7 +9,6 @@
     <div class="text-center mx-auto col-6 py-5 ">
         {{-- BTN RETOUR --}}
        
->>>>>>> b6388aec72e189f684e44f744236979b58c8a0da
         {{-- INPUT NOM --}}
         <div class="border border-warning p-5 bg-warning text-white rounded">
             <label for=""></label>

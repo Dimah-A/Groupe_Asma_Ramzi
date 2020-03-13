@@ -38,6 +38,13 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([  
+            'nom' => 'required|min:3',  
+            'img' => 'required|'  
+           
+            ]);  
+        
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);
         $avatar = new Avatar();

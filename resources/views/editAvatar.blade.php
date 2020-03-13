@@ -27,7 +27,7 @@
             <label for="">image</label>
             <input class="w-50 form-control @error('img') is-invalid @enderror" type="file" value="@if($errors->first('img'))@else{{old('img')}}@endif" name="img">
             @error('img')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div class="text-danger">{{ $message }}</div>
             @enderror
             
             
